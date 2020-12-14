@@ -1,0 +1,149 @@
+\documentclass[usenames,dvipsnames,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{tikz}
+\title{Tutorium 1 - Programmieren 1}
+\date[ISPN ’80]{PR/01 - \today}
+\author{Eric Antosch}
+
+\usetheme{hawsx}
+\setbeamertemplate{section in toc}{%
+  
+      \begin{tikzpicture}
+        
+        \fill[color=UmUBlue] (1,1) circle (0.2cm);
+        \node[anchor=center] (xlab) at (1,1) {\color{white}\inserttocsectionnumber};
+        \node[anchor=west] (ylab) at (1.2,0.97) {\color{UmUBlue}\sffamily\textsf{\inserttocsection}};
+      \end{tikzpicture}
+  }
+
+
+\begin{document}
+    
+    \begin{frame}
+        \titlepage
+    \end{frame}    
+    \begin{frame}{Inhaltsverzeichnis}
+        \tableofcontents
+    \end{frame}
+    \section{Begrüßung}
+    \begin{frame}{Begrüßung}
+        \begin{itemize}
+            \item Eric Antosch
+            \pause
+            \item 20 Jahre alt
+            \pause 
+            \item Elektro- und Informationstechnik, dual
+            \pause
+            \item 2. Semester
+        \end{itemize}
+    \end{frame}
+    \section{Organisation}
+    \begin{frame}{Organisation}
+        \begin{itemize}
+            \item Termine: Dienstags, 17:00 - 19:00
+            \item Zusammenfassung der Vorlesung
+            \item Fragerunde zu den Themen des Moduls
+            \item Extraaufgaben mit Besprechung
+            \item Unterlagen finden Sie im Emil-Raum
+        \end{itemize}
+    \end{frame}
+    \section{Zusammenfassung}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item was ein Von-Neumann-Rechner ist,
+                \item wofür man eine IDE verwendet,
+                \item wie man höhere Programmiersprachen und deren Übersetzung charakterisiert
+                \item und wie man mit Visual Studio umgeht
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item wie ein Programm in C aufgebaut ist,
+                \item was Kommentare sind und wie man sie schreibt,
+                \item wo der Unterschied zwischen Quelldateien und Headerdateien ist
+                \item und wie man mit der Funktion printf() umgeht.
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item was Variablen sind und welche Datentypen es gibt,
+                \item wie man Variablen und Konstanten deklariert und initialisiert,
+                \item was der Scope einer Variablen ist und wie man diesen bestimmt
+                \item und was die ASCII-Tablle ist und wie man sie verwendet.
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item was Bedingungen sind und wo der Unterschied zwischen if und switch ist,
+                \item was Schleifen sind und wo der Unterschied zwischen for, while und do...while ist,
+                \item was Sprunganweisungen sind und wie man goto und label verwendet,
+                \item und wie man die Kontrollstrukturen sinnvoll miteinander verschachtelt.
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item was Funktionen sind und wie man sie definiert,
+                \item was Headerdateien sind, welche es gibt und wie man eigene erstellt,
+                \item wo der Unterschied zwischen Call-By-Value und Call-By-Reference ist
+                \item und was Rekursion ist und wie man diese erstellt.
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \section{Fragerunde}
+\framepic{Idee.jpg}{
+	%\framefill
+    \textcolor{white}{Fragen?}
+    \vskip 0.5cm
+}
+
+    \section{Aufgaben}
+    \begin{frame}{Aufgaben}
+        \begin{block}{printf()}
+            Nennen sie die gängigsten Format Identifier, die man zusammen 
+            mit printf() nutzt.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{IDE}
+            Wofür steht die Abkürzung IDE und was beinhaltet ein solches Programm? Welche 
+            IDEs kennen Sie?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Kommentare}
+            Welche zwei Arten von Kommentaren kennen Sie und wo liegt der Unterschied?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Scope}
+            Was bezeichnen wir als Scope, auf welche Elemente in unserem Programm bezieht er sich und
+            wie gehen wir damit um?
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Aufgaben}
+        \begin{block}{Funktionen}
+            Wie definieren wir eine Funktion? Wie nennen wir die einzelnen Bausteine, die wir dafür brauchen?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Datentypen}
+            Welche Datentypen haben wir in C? Geben Sie die Datentypen geordnet nach der Speicherkapazität von
+            groß nach klein an.
+        \end{block}
+    \end{frame}
+
+    
+
+\end{document}

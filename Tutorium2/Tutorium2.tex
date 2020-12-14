@@ -1,0 +1,301 @@
+\documentclass[usenames,dvipsnames,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{tikz}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+\usepackage{listings}
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+\title{Tutorium 2 - Programmieren 1}
+\date[ISPN ’80]{PR/01 - \today}
+\author{Eric Antosch}
+
+\usetheme{hawsx}
+\setbeamertemplate{section in toc}{%
+  
+      \begin{tikzpicture}
+        
+        \fill[color=UmUBlue] (1,1) circle (0.2cm);
+        \node[anchor=center] (xlab) at (1,1) {\color{white}\inserttocsectionnumber};
+        \node[anchor=west] (ylab) at (1.2,0.97) {\color{UmUBlue}\sffamily\textsf{\inserttocsection}};
+      \end{tikzpicture}
+  }
+
+
+\begin{document}
+    
+    \begin{frame}
+        \titlepage
+    \end{frame}    
+    \begin{frame}{Inhaltsverzeichnis}
+        \tableofcontents
+    \end{frame}
+    \section{Zusammenfassung}
+    \begin{frame}{Zusammenfassung}
+        \begin{block}{Sie haben schon gelernt...}
+            \begin{itemize}
+                \item was Funktionen sind und wie man sie definiert,
+                \item was Headerdateien sind, welche es gibt und wie man eigene erstellt,
+                \item wo der Unterschied zwischen Call-By-Value und Call-By-Reference ist
+                \item und was Rekursion ist und wie man diese erstellt.
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \subsection{Funktion}
+    \begin{frame}{Funktionen}
+        \begin{block}{Was ist eine Funktion?}
+            Eine Funktion ist ein Block von Code, der durch einen Aufruf ausgeführt werden kann. Dabei besteht jede Funktion aus einem 
+            Funktionskopf und einem Funktionskörper. Im Funktionskopf wird der Name, der Typ des Rückgabewerts und die Parameter festgelegt, während
+            im Funktionskörper der eigentliche Code vorgefunden werden kann.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Funktionen}{Prototypen}
+        \begin{block}{Prototypen}
+            Es ist ratsam, alle Funktionen in dem eigenen Code direkt unter den Includes und den Präprozessordirektiven mithilfe von Prototypen
+            zu beschreiben. Der Prototyp ist im Prinzip nur der Funktionskopf ohne Funktionskörper.
+        \end{block}
+    \end{frame}
+    \begin{frame}[fragile]{Funktionen}{Einfaches Beispiel: main()}
+           \begin{lstlisting}
+               int main(void){
+                   return 0; 
+               }
+           \end{lstlisting} 
+    \end{frame}
+    \begin{frame}[fragile]{Funktionen}{Einfaches Beispiel: plus(a,b)}
+        \begin{lstlisting}
+            int plus(int a, int b){
+                return a+b;
+            }
+        \end{lstlisting}
+    \end{frame}
+    \begin{frame}[fragile]
+        \begin{lstlisting}
+            
+double decToBinary(int dec){
+
+    int biggerPot = 2;
+    int count = 0;
+    while (dec%biggerPot!=dec)
+    {
+        biggerPot *= 2;     //biggerPot = biggerPot * 2;
+        count++;
+    }
+    biggerPot /= 2;
+    int pointOfIncrease = pow(10, count);
+    double binary = 0;
+    short firstTime = 1;
+    while (count>-1)
+    {
+        int oldDec = dec;
+        dec = dec%biggerPot;
+
+    \end{lstlisting}
+    \end{frame}
+    \begin{frame}[fragile]
+        \begin{lstlisting}
+        if (firstTime == 1)
+        {
+            binary += pointOfIncrease;
+            firstTime = 0;
+        }else if (oldDec%biggerPot==oldDec)
+        {
+            
+        }else
+        {
+            binary += pointOfIncrease;
+        }
+        
+        
+        
+        biggerPot /= 2; // biggerPot = biggerPot / 2;
+        count--;
+        pointOfIncrease = pow(10, count);
+        
+    }
+    return binary;
+}
+        \end{lstlisting}
+    \end{frame}
+    \subsection{Headerdateien}
+    \begin{frame}{Headerdateien?}
+        \begin{block}{Was sind Headerdateien?}
+            Headerdateien sind der zweite Dateientyp neben *.c-Dateien, die ansich
+            jedoch keinen C-Code enthalten. Sie enthalten lediglich die Informationen über tatsächliche
+            C-Dateien, sodass sie in den eigenen Code eingebunden werden können.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Headerdateien}
+        \begin{block}{Wichtige Headerdateien}
+            Einige wichtige Headerdateien:
+            \begin{itemize}
+                \item stdio.h
+                \item stdlib.h
+                \item math.h
+                \item conio.h
+            \end{itemize}
+        \end{block}
+    \end{frame}
+    \subsection{Value vs. Reference}
+    \begin{frame}{Value vs. Reference}
+        \begin{block}{Call-By-Value}
+            Der Aufruf einer Funktion mit Parametern, die Variablen
+            darstellen. Die Werte werden in der Funktion zur Verarbeitung 
+            von Anweisungen und Informationen genutzt.
+        \end{block}
+    \end{frame}
+    \begin{frame}[fragile]{Value vs. Reference}
+        \begin{lstlisting}
+            void tauschen(int a, int b){
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+        \end{lstlisting}
+    \end{frame}
+    \begin{frame}{Value vs. Reference}
+        \begin{block}{Call-By-Reference}
+            Der Aufruf einer Funktion mit Parametern, die Zeiger auf Variablen
+            darstellen. Die Speicheraddressen, die den Variablen zugeordnet sind, werden in der Funktion zur Verarbeitung 
+            von Anweisungen und Informationen genutzt. Es kann jedoch auch eine direkte Veränderung des Wertes aus der Funktion heraus geschehen.
+        \end{block}
+    \end{frame}
+    \begin{frame}[fragile]{Value vs. Reference}
+            \begin{lstlisting}
+                void tauschen(int *a, int *b){
+                    int temp = *a;
+                    *a = *b;
+                    *b = temp;
+                }
+            \end{lstlisting}
+    \end{frame}
+    \subsection{Rekursion}
+    \begin{frame}{Rekursion}
+        \begin{block}{Was ist Rekursion?}
+            Als eine rekursive Funktion bezeichnet man eine Funktion, die sich in ihrer Ausführung selbst aufruft.
+            Man kann solche Funktionen gut mit rekursiven Folgen vergleichen. Das nächste Folgenglied ist hierbei abhängig von 
+            den vorherigen Ergebnissen der Folge. Ein Anfang wird dabei meist als gegeben angenommen.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Rekursion}
+        \begin{block}{Stack}
+            Zu beachten bei dem Erstellen von rekursiven Funktionen ist, dass ein sogenannter Stack existiert. Ruft eine Funktion sich selbst auf,
+            dann wird zuerst die zuletzt aufgerufene Funktion bis zum Schluss ausgeführt. Nach dem Ende dieser Funktion, springt das Programm zurück 
+            in die Funktion, die die gerade beendete Funktion aufgerufen hat. Rekursion ist also nicht einfach nur eine andere Form von Iteration.
+        \end{block}
+    \end{frame}
+    \begin{frame}[fragile]{Rekursion}
+        \begin{lstlisting}
+            int addTillTen(int a){
+                if(a >= 10){
+                    return a;
+                }
+                a++;
+                int b = addTillTen(a);
+                printf("%d\n", b);
+                return a;
+            }
+        \end{lstlisting}
+    \end{frame}
+    \section{Fragerunde}
+\framepic{Idee.jpg}{
+	%\framefill
+    \textcolor{white}{Fragen?}
+    \vskip 0.5cm
+}
+
+    \section{Aufgaben}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Funktionen}
+            Aus welchen zwei Teilen besteht eine Funktion in ihrem Code? Nennen Sie ein entsprechendes Beispiel für
+            beide Teile!
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Prototyp}
+            Was ist der Prototyp einer Funktion und wofür wird er verwendet? Erstellen Sie eine Funktion und den entsprechenden Prototyp und 
+            stellen Sie diesen kurz vor!
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Headerdateien}
+            Geben Sie in ihren eigenen Worten wieder, was eine Headerdatei ist! Welche Headerdateien sind schon bekannt?
+            Geben Sie ein paar Beispiele für hilfreiche oder wichtige Funktionen aus diesen Dateien.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Call-By-Value}
+            Erklären Sie kurz, was eine Funktion ist, die auf dem Call-By-Value-Prinzip beruht. Erstellen Sie schnell eine Funktion, die dieser Regel
+            gehorcht. Wofür sind diese Funktionen besonders geeignet?
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Aufgaben}
+        \begin{block}{Call-By-Reference}
+            Charakterisieren Sie nun das Call-By-Reference-Prinzip, indem Sie die Unterschiede zu Call-By-Value nennen und warum diese von Bedeutung sind.
+            Schreiben Sie die gleiche Funktion aus der vorherigen Aufgabe nun auch mit Call-By-Reference. Ändert sich die Arbeitsweise ihrer Funktion und gibt es einen anderen Output? Wenn ja, warum?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Rekursion}
+            Was ist Rekursion und woran erkennt man Rekursion in einem Programm? Nennen Sie Beispiele von Rekursion aus der Mathematik.
+            Schreiben Sie eine Funktion, die über Rekursion funktioniert. Wo liegt der Unterschied zwischen Iteration und Rekursion?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Maximum von vier Zahlen}
+            Schreiben Sie eine Funktion int maxOfFour(int a, int b, int c, int d), welche Ihnen das Maximum der vier Zahlen
+            mithilfe von return wieder an ihre Main-Funktion schickt. Geben Sie dann diesen Wert mithilfe von printf in ihrer Main-Funktion aus.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Quersumme einer fünfstelligen Zahl}
+            Schreiben Sie eine Funktion int quersumme(int n), die Ihnen die Quersumme einer fünfstelligen Zahl zurückgibt und geben Sie diese
+            dann wieder in Ihrer Main-Funktion aus.
+        \end{block}
+    \end{frame}
+    \section{Mini-Praktikum}
+    \begin{frame}{Mini-Praktikum}
+        \begin{exampleblock}{Mini-Praktikum}
+            Erstellen Sie ein Programm, welches die folgenden Anforderungen erfüllt:
+            \begin{itemize}
+                \item Sie haben eine Main-Funktion, die sich als aller erste Funktion in ihren Programm befindet.
+                \item Sie haben zwei weitere Funktionen:
+                \begin{itemize}
+                    \item Eine Funktion gibt Ihnen die Summe der Quadratzahlen bis zu einer Zahl n zurück.
+                    \item Die zweite Funktion gibt Ihnen das n.te (oder auch m.te) Glied der Fibonacci-Folge aus.
+                \end{itemize}
+                \item Beachten Sie, dass es manchmal sinnvoll sein kann, die Art, Funktionen zu schreiben, auf das Prinzip der Funktion anzupassen!
+            \end{itemize}
+        \end{exampleblock}
+    \end{frame}
+    
+
+\end{document}

@@ -1,0 +1,38 @@
+\mode<presentation>
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{background}{
+  %\includegraphics{bgpc.jpg}
+  \begin{tikzpicture}
+    \ifnum\thepage>1\relax%
+    \else
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \node[inner sep=0pt] (bgx) at (6.4,6.4) {\includegraphics[width=\the\paperwidth]{bgpc.jpg}};
+    \node[inner sep=0pt] (fgx) at (1.5,1) {\includegraphics[width=2.5cm]{logo-haw-2017.png}};
+    %\fill[color=white] (0,0) rectangle(2.95,1.9);
+    \fill[color=black!80!white] (3.05,0) rectangle(\the\paperwidth,4);
+    
+     %\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+     \fi
+    \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{hawsx}[1][]
+{ 
+   \vskip5.7cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
+      \usebeamerfont{title}\sffamily\fontseries{semibold}\selectfont\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
+      \usebeamerfont{author}\sffamily\fontseries{semibold}\selectfont\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode
+<all>

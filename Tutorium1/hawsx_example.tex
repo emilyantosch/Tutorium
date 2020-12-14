@@ -1,0 +1,103 @@
+\documentclass[usenames,dvipsnames,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{tikz}
+\title{Planung meines Studiums mit MS Outlook}
+\date[ISPN ’80]{EK/01 - \today}
+\author{Florian Tietjen, Karl Döring, Anna Hoffmann, Timo Türk, Eric Antosch}
+
+\usetheme{hawsx}
+\setbeamertemplate{section in toc}{%
+  
+      \begin{tikzpicture}
+        
+        \fill[color=UmUBlue] (1,1) circle (0.2cm);
+        \node[anchor=center] (xlab) at (1,1) {\color{white}\inserttocsectionnumber};
+        \node[anchor=west] (ylab) at (1.2,0.97) {\color{UmUBlue}\sffamily\textsf{\inserttocsection}};
+      \end{tikzpicture}
+  }
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{Inhaltsverzeichnis}
+    \tableofcontents
+\end{frame}
+\framecard{ÜBERSICHT}
+\section{Übersicht}
+
+\begin{frame} 
+    
+    \frametitle{Übersicht} 
+    \framesubtitle{Was ist MS Outlook?}
+    \begin{exampleblock}{MS Outlook}
+        MS Outlook ist ein E-Mail- und Kalendarprogramm von Microsoft und steht,
+        wie alle Programme der Office Suite, für Käufer- und Abonnenten der Office-Produkte
+        zur Verfügung.
+    \end{exampleblock} 
+    
+\end{frame}
+
+\begin{frame} 
+    
+    \frametitle{Übersicht} 
+    \framesubtitle{Wie bekomme ich das Programm?}
+    \begin{exampleblock}{Download und Installation}
+        MS Outlook steht als Teil des Abonnement der HAW des Office 365-Angebots
+        für jeden Studenten der HAW zur Verfügung. Nach dem Download des Programms von 
+        der Microsoft-Webseite, meldet man sich nun über die HAW-Kennung an. 
+    \end{exampleblock} 
+    
+\end{frame}
+
+
+\begin{frame} 
+    
+    \frametitle{Übersicht} 
+    \framesubtitle{Welche Funktionen erwarten mich?}
+    \begin{block}{E-Mail}
+        \begin{enumerate}
+            \item Verschiedene Konten auf einem Client
+            \item Offline-Zugriff auf bereits heruntergeladene Emails
+            \item Benachrichtigungen bei Erhalt von Emails
+            \item Kategorien für bestimmte Arten von Mails
+        \end{enumerate}
+    \end{block} 
+    
+\end{frame}
+\begin{frame} 
+    
+    \frametitle{Übersicht} 
+    \framesubtitle{Welche Funktionen erwarten mich?}
+    \begin{block}{Kalendar}
+        \begin{enumerate}
+            \item Mehrere Kalendar für verschiedene Anlässe
+            \item Offline-Zugriff auf erstellte Pläne
+            \item Benachrichtigungen für Events im Voraus
+            \item Einfärbung für die Übersicht
+            \item Synchronisierung der erstellten Kalendar über Geräte hinweg
+        \end{enumerate}
+    \end{block} 
+    
+\end{frame}
+\section{Der Kalendar}
+\framecard{Der Kalendar}
+
+\framepic{calendar1.png}{
+	%\framefill
+    \textcolor{white}{}
+    \vskip 0.5cm
+}
+
+\framepic{Calendar2.png}{
+	%\framefill
+    \textcolor{white}{}
+    \vskip 0.5cm
+}
+
+\section{Interaktion mit Kommilitonen}
+\framecard{Interaktion mit Kommilitonen}
+
+\end{document}
