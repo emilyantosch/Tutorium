@@ -1,0 +1,134 @@
+\documentclass[usenames,dvipsnames,10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{tikz}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+\usepackage{listings}
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+\title{Tutorium 3 - Programmieren 1}
+\date[ISPN ’80]{PR/01 - \today}
+\author{Eric Antosch}
+
+\usetheme{hawsx}
+\setbeamertemplate{section in toc}{%
+  
+      \begin{tikzpicture}
+        
+        \fill[color=UmUBlue] (1,1) circle (0.2cm);
+        \node[anchor=center] (xlab) at (1,1) {\color{white}\inserttocsectionnumber};
+        \node[anchor=west] (ylab) at (1.2,0.97) {\color{UmUBlue}\sffamily\textsf{\inserttocsection}};
+      \end{tikzpicture}
+  }
+
+
+\begin{document}
+    
+    \begin{frame}
+        \titlepage
+    \end{frame}    
+    \section{Aufgaben}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Boxen durch einen Tunnel}
+          Sie transportieren einige Boxen durch einen Tunnel, wobei jede Box durch ihre Länge, ihre Breite und Höhe definiert wird. Schreiben Sie zwei Funktionen, getVolume(int width, int height, int length) und fit(int height), wobei die erste ihnen das Volumen der Box zurückgibt und die zweite ihnen bestimmt, ob die Box durch den Tunnel passt. Eine Box passt, wenn ihre Höhe weniger als 41 ist.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Muster durch Schleifen}
+          Erstellen Sie ein Muster aus den Zahlen 1 bis n, wobei n eine Zahl ist, die der User eingeben kann.
+          Ein Beispiel für ein Muster mit n=4 wäre:
+          \begin{center}
+            4444444\\
+            4333334\\
+            4322234\\
+            4321234\\
+            4322234\\
+            4333334\\
+            4444444
+          \end{center}
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Aufgaben}
+      \begin{block}{Plus Minus}
+        Schreiben Sie ein Programm, welches eine Reihe von 5 Werten bekommt und von diesen dann entscheidet, ob die Menge eher negativ, positiv oder neutral ist. Geben Sie die Ergebnisse entweder in Prozent oder als Faktor an.
+        Das jeweilige Ergebnis des Vergleiches schreiben sie dann darunter.
+        \end{block}
+      \end{frame}
+
+
+    \begin{frame}{Aufgaben}
+        \begin{block}{Call-By-Value}
+            Erklären Sie kurz, was eine Funktion ist, die auf dem Call-By-Value-Prinzip beruht. Erstellen Sie schnell eine Funktion, die dieser Regel
+            gehorcht. Wofür sind diese Funktionen besonders geeignet?
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Aufgaben}
+        \begin{block}{Call-By-Reference}
+            Charakterisieren Sie nun das Call-By-Reference-Prinzip, indem Sie die Unterschiede zu Call-By-Value nennen und warum diese von Bedeutung sind.
+            Schreiben Sie die gleiche Funktion aus der vorherigen Aufgabe nun auch mit Call-By-Reference. Ändert sich die Arbeitsweise ihrer Funktion und gibt es einen anderen Output? Wenn ja, warum?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Rekursion}
+            Was ist Rekursion und woran erkennt man Rekursion in einem Programm? Nennen Sie Beispiele von Rekursion aus der Mathematik.
+            Schreiben Sie eine Funktion, die über Rekursion funktioniert. Wo liegt der Unterschied zwischen Iteration und Rekursion?
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Maximum von vier Zahlen}
+            Schreiben Sie eine Funktion int maxOfFour(int a, int b, int c, int d), welche Ihnen das Maximum der vier Zahlen
+            mithilfe von return wieder an ihre Main-Funktion schickt. Geben Sie dann diesen Wert mithilfe von printf in ihrer Main-Funktion aus.
+        \end{block}
+    \end{frame}
+    \begin{frame}{Aufgaben}
+        \begin{block}{Quersumme einer fünfstelligen Zahl}
+            Schreiben Sie eine Funktion int quersumme(int n), die Ihnen die Quersumme einer fünfstelligen Zahl zurückgibt und geben Sie diese
+            dann wieder in Ihrer Main-Funktion aus.
+        \end{block}
+    \end{frame}
+    \section{Mini-Praktikum}
+    \begin{frame}{Mini-Praktikum}
+        \begin{exampleblock}{Mini-Praktikum}
+            Erstellen Sie ein Programm, welches die folgenden Anforderungen erfüllt:
+            \begin{itemize}
+                \item Sie haben eine Main-Funktion, die sich als aller erste Funktion in ihren Programm befindet.
+                \item Sie haben zwei weitere Funktionen:
+                \begin{itemize}
+                    \item Eine Funktion gibt Ihnen die Summe der Quadratzahlen bis zu einer Zahl n zurück.
+                    \item Die zweite Funktion gibt Ihnen das n.te (oder auch m.te) Glied der Fibonacci-Folge aus.
+                \end{itemize}
+                \item Beachten Sie, dass es manchmal sinnvoll sein kann, die Art, Funktionen zu schreiben, auf das Prinzip der Funktion anzupassen!
+            \end{itemize}
+        \end{exampleblock}
+    \end{frame}
+    
+
+\end{document}

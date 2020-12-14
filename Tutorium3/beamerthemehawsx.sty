@@ -1,0 +1,56 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{soul}
+\RequirePackage{xcolor}
+% Settings
+
+\useinnertheme{hawsx}
+\useoutertheme{hawsx}
+\usecolortheme{hawsx}
+\usefonttheme{hawsx}
+
+
+\ifdefined\DEBUG
+\usepackage[absolute,overlay,showboxes]{textpos}
+\else
+\usepackage[absolute,overlay]{textpos}
+\fi
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+% Squared blocks
+\setbeamertemplate{blocks}[rounded=false] 
+
+% Table of contents (outline) styling
+\setbeamertemplate{section in toc}[balls numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\newcommand{\framecard}[2][UmUBlue]{
+    {\setbeamercolor{background canvas}{bg=#1}%
+      \begin{frame}[plain]%
+        \vfill%
+        \begin{center}%
+          {\color{white}\Huge\sffamily\textsf{%
+            {#2}%
+          }}%
+        \end{center}%
+        \vfill%
+      \end{frame}%
+  }
+}
+
+\newcommand{\framepic}[3][1]{
+  {
+    \usebackgroundtemplate{%
+    \tikz[overlay,remember picture] \node[opacity=#1, at=(current page.center)] {
+      \includegraphics[height=\paperheight, width=\paperwidth]{#2}};
+    }
+    \begin{frame}[plain]
+      \huge{#3}
+    \end{frame}
+  }
+}
+
+\mode<all>
