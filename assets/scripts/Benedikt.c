@@ -21,8 +21,8 @@ int quersumme(int n){
   int potenz = 0;
   int result = 0;
   for(int i = 1; i <= 5; i++){
-    potenz = n%10^i;
-    result = result + potenz/10^(i-1);
+    potenz = fmod(n, pow(10,i));
+    result = result + potenz/pow(10,i-1);
   }
 
   return result;
