@@ -1,0 +1,10 @@
+\babel@toc {german}{}
+\beamer@sectionintoc {1}{Mini-Praktikum}{3}{0}{1}
+\beamer@sectionintoc {2}{Zusammenfassung}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Funktion}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Headerdateien}{9}{0}{2}
+\beamer@subsectionintoc {2}{3}{Value vs. Reference}{11}{0}{2}
+\beamer@subsectionintoc {2}{4}{Rekursion}{15}{0}{2}
+\beamer@sectionintoc {3}{Fragerunde}{18}{0}{3}
+\beamer@sectionintoc {4}{Aufgaben}{19}{0}{4}
+\beamer@sectionintoc {5}{Mini-Praktikum}{28}{0}{5}

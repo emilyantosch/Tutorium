@@ -1,0 +1,4 @@
+\babel@toc {german}{}
+\beamer@sectionintoc {1}{Mini-Praktikum}{2}{0}{1}
+\beamer@sectionintoc {2}{Aufgaben}{3}{0}{2}
+\beamer@sectionintoc {3}{Mini-Praktikum}{9}{0}{3}

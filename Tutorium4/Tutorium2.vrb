@@ -1,0 +1,12 @@
+\frametitle{Rekursion}
+\begin{lstlisting}
+            int addTillTen(int a){
+                if(a >= 10){
+                    return a;
+                }
+                a++;
+                int b = addTillTen(a);
+                printf("%d\n", b);
+                return a;
+            }
+        \end{lstlisting}
